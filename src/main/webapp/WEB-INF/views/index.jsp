@@ -1,10 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<c:url value="/css/index.css" var="indexCssUrl" />
+<link rel="stylesheet" href="${ indexCssUrl }">
 </head>
 <body>
 	<header>
@@ -33,5 +36,12 @@
 		</div>
 		<button>Valider</button>
 	</form>
+	
+	<h2>Liste des utilisateurs :</h2>
+	<ul>
+		<c:forEach items="${ userList }" var="item">
+			<li>${ item.name } : age=${ item.age } et email=${ item.email }</li>
+		</c:forEach>
+	</ul>
 </body>
 </html>
